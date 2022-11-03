@@ -15,7 +15,6 @@ ListaVendedores vendedores;
 
 int main() {
     vendedores=leerVendedores();
-    guardarVendedor();
     int opcion;
     do {
 
@@ -61,6 +60,8 @@ void eliminarPorRut(){
 }
 
 void buscarPorRut(){
+//    todo if si no encuentra
+    cout << "INGRESE EL Rut: " << "\n";
     string n;
     cin >> n;
     recupera(localiza(n,vendedores), vendedores);
@@ -76,48 +77,35 @@ void crearVendedor() {
     string n,n2,n3,n4,n5,n6,n7,n8,n9;
     printf("Ingrese la Cuenta Bancaria para el vendedor: \n");
     cin >> n;
-    nuevo.setCuenta(n);
     fflush(stdin);
     printf("Ingrese el nombre del vendedor: \n");
     cin >> n2;
-    nuevo.setNombre(n2);
     fflush(stdin);
     printf("Ingrese el Apellido del vendedor:  \n");
     cin >> n3;
-    nuevo.setCuenta(n3);
     fflush(stdin);
     printf("Ingrese el Rut del vendedor:  \n");
     cin >> n4;
-    nuevo.setCuenta(n4);
     fflush(stdin);
     printf("Ingrese el Telefono para el contacto:  \n");
     cin >> n5;
-    nuevo.setCuenta(n5);
     fflush(stdin);
     printf("Ingrese la Direccion del vendedor:  \n");
     cin >> n6;
-    nuevo.setCuenta(n6);
     fflush(stdin);
     printf("Ingrese la Edad para el contacto:  \n");
     cin >> n7;
-    nuevo.setCuenta(n7);
     fflush(stdin);
     printf("Ingrese la Profesion del vendedor:  \n");
     cin >> n8;
-    nuevo.setCuenta(n8);
     fflush(stdin);
     printf("Ingrese la Deuda del vendedor:  \n");
     cin >> n9;
-    nuevo.setCuenta(n9);
     fflush(stdin);
 
-    cout<<n5<<"\n";
-    cout<<n3.c_str()<<"\n";
-    cout<<nuevo.nombre<<"\n";
+    nuevo=Vendedor("1",n,n2,n3,n4,n5,n6,n7,n8,n9);
 
-    cout<<nuevo.telefono<<"\n";
-
-//    guardarVendedor(nuevo);
+    guardarVendedor(nuevo);
 }
 
 

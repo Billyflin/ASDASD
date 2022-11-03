@@ -6,8 +6,7 @@
 using namespace std;
 
 class Vendedor {
-public:
-    ListaClientes clientes;
+private:
     string id;
     string cuenta;
     string nombre;
@@ -19,13 +18,35 @@ public:
     string profesion;
     string deuda;
     string fechaDePago;
+public:
+    ListaClientes clientes;
 
+    Vendedor() {   // CONSTRUCTOR DE VENDEDOREs
+    }
 
-
+    Vendedor(const string &id, const string &cuenta, const string &nombre, const string &apellido, const string &rut,
+             const string &telefono, const string &direccion, const string &edad, const string &profesion,
+             const string &deuda
+//             ,
+//             const string &fechaDePago, const ListaClientes &clientes
+             ) :
+            id(id),
+            cuenta(cuenta),
+            nombre(nombre),
+            apellido(apellido),
+            rut(rut),
+            telefono(telefono),
+            direccion(direccion),
+            edad(edad),
+            profesion(profesion),
+            deuda(deuda)
+//            fechaDePago(fechaDePago)
+//            clientes(clientes) {}
+            {}
 
     string toString() {
         return cuenta + "," + nombre + "," + apellido + "," + rut + "," + telefono + "," + direccion + "," +
-               edad + "," + profesion + "," + deuda  +  "," + fechaDePago + "\n";
+               edad + "," + profesion + "," + deuda + "," + fechaDePago + stringClientes(clientes)+"\n";
     }
 
 
@@ -77,6 +98,62 @@ public:
         Vendedor::fechaDePago = fechaDePago;
     }
 
+/*
+* Nombre de la función: getters.
+* Tipo de función: vacia.
+* Parámetros: la direccion de memoria de los atributos del vendedor
+* Dato de retorno: el valor de la variable solicitada
+* Descripción de la función: retorna el valor de la variable solicitada
+*/
+
+
+    const string &getId() const {
+        return id;
+    }
+
+    const string &getCuenta() const {
+        return cuenta;
+    }
+
+    const string &getNombre() const {
+        return nombre;
+    }
+
+    const string &getApellido() const {
+        return apellido;
+    }
+
+    const string &getRut() const {
+        return rut;
+    }
+
+    const string &getTelefono() const {
+        return telefono;
+    }
+
+    const string &getDireccion() const {
+        return direccion;
+    }
+
+    const string &getEdad() const {
+        return edad;
+    }
+
+    const string &getProfesion() const {
+        return profesion;
+    }
+
+    const string &getDeuda() const {
+        return deuda;
+    }
+
+    const string &getFechaDePago() const {
+        return fechaDePago;
+    }
+
+    const ListaClientes &getClientes() const {
+        return clientes;
+    }
 };
 
 

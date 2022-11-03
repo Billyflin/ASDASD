@@ -106,10 +106,36 @@ tipoDato recupera(int p, ListaClientes lista) {
 
 int localiza(string x, ListaClientes lista) {
     for (int i = primero(lista); i < fin(lista); i = siguiente(i, lista))
-        if (recupera(i, lista).rut == x)
+        if (recupera(i, lista).getRut() == x)
             return i;
     return fin(lista);
 }
+string stringClientes(ListaClientes clientes){
+    string string;
+    for (int i = primero(clientes); i < fin(clientes); i++) {
+        tipoDato x = recupera(i, clientes);
+        string+=x.toString();
+    }
+    return string ;
+}
+
+void imprime(ListaClientes clientes) {
+    for (int i = primero(clientes); i < fin(clientes); i++) {
+        tipoDato x = recupera(i, clientes);
+
+        cout
+             << x.getNombre() << "\n"
+             << x.getApellido() << "\n"
+             << x.getRut() << "\n"
+             << x.getTelefono() << "\n"
+             << x.getDireccion() << "\n"
+             << x.getEdad() << "\n"
+             << x.getProfesion() << "\n"
+             << x.getDeuda() << "\n";
+    }
+    printf("-------\n");
+}
+
 
 //void imprime(ListaClientes lista) {
 //    for (int i = primero(lista); i < fin(lista); i = siguiente(i, lista)) {

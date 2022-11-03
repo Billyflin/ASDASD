@@ -104,11 +104,12 @@ tipoDato2 recupera(int p, ListaVendedores lista) {
     return aux->dato;
 }
 
-int localiza(string x, ListaVendedores lista) {
-
-    for (int i = primero(lista); i < fin(lista); i = siguiente(i, lista))
-        if (recupera(i, lista).rut == x)
+int localiza(string x, ListaVendedores lista) {   // ENCUENTRA POR RUT
+    int i;
+    for (i = primero(lista); i < fin(lista); i = siguiente(i, lista))
+        if (recupera(i, lista).getRut() == x) {
             return i;
+        }
     return fin(lista);
 }
 
@@ -116,16 +117,17 @@ void imprime(ListaVendedores vendedores) {
     for (int i = primero(vendedores); i < fin(vendedores); i++) {
         tipoDato2 x = recupera(i, vendedores);
 
-        cout << x.cuenta<<"\n"
-             << x.nombre<<"\n"
-             << x.apellido<<"\n"
-             << x.rut<<"\n"
-             << x.telefono<<"\n"
-             << x.direccion<<"\n"
-             << x.edad<<"\n"
-             << x.profesion<<"\n"
-             << x.deuda<<"\n"
-             << x.fechaDePago <<"\n" ;
+        cout << x.getCuenta() << "\n"
+             << x.getNombre() << "\n"
+             << x.getApellido() << "\n"
+             << x.getRut() << "\n"
+             << x.getTelefono() << "\n"
+             << x.getDireccion() << "\n"
+             << x.getEdad() << "\n"
+             << x.getProfesion() << "\n"
+             << x.getDeuda() << "\n"
+             << x.getFechaDePago() << "\n"
+             << stringClientes(x.clientes) << "\n"             ;
     }
     printf("-------\n");
 }
@@ -138,8 +140,8 @@ void suprime(int p, ListaVendedores &lista) {
         nodo2 *aux2 = lista.primero;
         for (int i = 0; i < p - 2; i++)
             aux2 = aux2->next;
-        aux = aux2->next;
-        aux2->next = aux->next;
+            aux = aux2->next;
+            aux2->next = aux->next;
     }
     aux->next = NULL;
     delete aux;
